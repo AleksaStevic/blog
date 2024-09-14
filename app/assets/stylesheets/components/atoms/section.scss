@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > .section-inner {
+    max-width: 1420px;
+    padding: 0 1rem;
+  }
+
+  .fluid > .section-inner {
+    max-width: revert;
+  }
+}

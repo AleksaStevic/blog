@@ -1,0 +1,12 @@
+<h1 class="text-3xl">Blog</h1>
+
+<ul class="flex flex-col gap-2 divide-y">
+  <% @blog_posts.each do |post| %>
+    <li>
+      <a href="<%= blog_post_path(post) %>" class="block p-2 bg-slate-300 hover:bg-slate-400 transition-colors">
+        <h2><%= post.title %></h2>
+        <p><%= post.body %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,103 @@
+@mixin base-styles {
+  background-color: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: .5rem;
+  color: var(--text-color);
+  padding: var(--padding);
+  transition: all 150ms ease-out;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@mixin button-primary {
+  --background-color: var(--space-cadet-100);
+  --text-color: white;
+  --border-color: var(--space-cadet-100);
+  --outline-color: white;
+
+  &:hover {
+    --background-color: var(--space-cadet-200);
+    --border-color: var(--space-cadet-200);
+    --text-color: white;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--outline-color);
+    outline-offset: -1px;
+  }
+}
+
+@mixin button-secondary {
+  --background-color: white;
+  --border-color: var(--space-cadet-100);
+  --text-color: var(--space-cadet-100);
+
+  &:hover {
+    --background-color: var(--space-cadet-100);
+    --border-color: var(--space-cadet-100);
+    --text-color: white;
+  }
+}
+
+@mixin link-primary {
+  --background-color: transparent;
+  --text-color: var(--space-cadet-200);
+  --border-color: transparent;
+  --outline-color: transparent;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  @include base-styles;
+  @include button-primary;
+
+  & {
+    --padding: .5rem 1rem;
+  }
+
+  &.secondary {
+    @include button-secondary;
+  }
+
+  &.link {
+    @include link-primary;
+  }
+
+  &.small {
+    --padding: .25rem .5rem;
+  }
+
+  &.large {
+    --padding: 1rem 2rem;
+  }
+}
+
+a {
+  @include base-styles;
+  @include link-primary;
+
+  & {
+    --padding: .25rem .5rem;
+  }
+
+  &.fill {
+    @include button-primary;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.secondary {
+    @include button-secondary;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

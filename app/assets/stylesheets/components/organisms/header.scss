@@ -1,0 +1,22 @@
+#main-header {
+  background-color: white;
+  border-bottom: 2px solid var(--space-cadet-100);
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+
+  > .logo {
+    padding: 12px;
+    border-radius: 5px;
+    background-color: var(--space-cadet-300);
+    color: var(--eerie-black-400);
+    margin-right: auto;
+  }
+
+  & > nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
