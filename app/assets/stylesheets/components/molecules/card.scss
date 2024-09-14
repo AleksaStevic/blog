@@ -1,0 +1,24 @@
+article.card {
+  border: 2px solid var(--space-cadet-100);
+  border-radius: 1rem;
+  overflow: clip;
+  display: flex;
+  gap: 1rem;
+
+  > .card-thumbnail {
+    width: 50%;
+    flex-grow: 0;
+    display: block;
+    object-fit: cover;
+  }
+
+  > .card-content {
+    width: 50%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

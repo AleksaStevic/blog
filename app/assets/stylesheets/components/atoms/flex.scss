@@ -1,0 +1,47 @@
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+$alignments: center, start, end, stretch, baseline;
+
+@each $alignment in $alignments {
+  .items-#{$alignment} {
+    align-items: $alignment;
+  }
+
+  .content-#{$alignment} {
+    align-content: $alignment;
+  }
+
+  .self-#{$alignment} {
+    align-self: $alignment;
+  }
+}
+
+$justify-content: center, start, end, between, around;
+
+@each $alignment in $justify-content {
+  .justify-#{$alignment} {
+    justify-content: $alignment;
+  }
+}

@@ -1,5 +1,9 @@
 .container
   %section
     .section-inner
-      %h1 Home page
-      %p Welcome to the home page
+      %h2.section-title Recent posts
+      %p.section-subtitle Hello World
+      .flex.flex-col.gap-5
+        = render "partials/blog-card"
+        = render "partials/blog-card"
+        = render "partials/blog-card"

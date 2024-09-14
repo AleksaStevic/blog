@@ -5,3 +5,9 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--ff-secondary), serif, system-ui;
 }
+
+@for $i from 1 through 6 {
+  h#{7 - $i} {
+    font-size: 0.5rem + 0.5rem * $i;
+  }
+}

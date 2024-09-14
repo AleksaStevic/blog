@@ -1,0 +1,24 @@
+$base-space: 4px;
+$min: 1;
+$max: 10;
+
+// Gap
+@for $i from $min through $max {
+  .gap-#{$i} {
+    gap: $base-space * $i;
+  }
+}
+
+// Padding
+@for $i from $min through $max {
+  .p-#{$i} {
+    padding: $base-space * $i;
+  }
+}
+
+// Margin
+@for $i from $min through $max {
+  .m-#{$i} {
+    margin: $base-space * $i;
+  }
+}
