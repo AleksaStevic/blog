@@ -36,3 +36,11 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Jetbrains
+.idea
+
+# Node (using this only to enable tailwind support in IDE)
+/node_modules
+/package.json
+/package-lock.json
