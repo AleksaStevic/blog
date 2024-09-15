@@ -60,3 +60,5 @@ gem "tailwindcss-rails", "~> 2.7"
 gem "standard", ">= 1.35.1", require: false
 
 gem "foreman", "~> 0.88.1", group: :development, require: false
+
+gem "devise", "~> 4.9"
