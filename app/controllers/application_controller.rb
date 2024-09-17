@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
-  def home
-  end
-
   def profile
     @user = current_user
   end
