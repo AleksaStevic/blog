@@ -1,12 +1,18 @@
-<div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= post.body %>
-  </p>
-
-</div>
+<article class="card" id="<%= dom_id post %>">
+  <img src="https://picsum.photos/150/100" class="card-img-top" alt="Thumbnail">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.body %></p>
+    <div class="d-flex gap-2">
+      <% if post.user == current_user %>
+        <%= link_to "Edit", edit_post_path(post), class: 'btn btn-outline-primary' %>
+        <%= link_to "Delete", post_path(post), data: { turbo_method: 'delete' }, class: 'btn btn-outline-danger' %>
+      <% end %>
+      <%= link_to "View", post_path(post), class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <time><%= post.created_at.strftime("%d %B, %Y") %></time>
+    <p class="m-0">by <%= post.user.username %></p>
+  </div>
+</article>

@@ -1,21 +1,17 @@
-<div class="w-full">
+<div class="container mt-5">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="alert alert-success" id="notice"><%= notice %></p>
   <% end %>
 
   <% content_for :title, "Posts" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Posts</h1>
-    <%= link_to "New post", new_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="posts" class="min-w-full">
+  <h1>Posts</h1>
+  <hr>
+  <div id="posts" class="row row-cols-3">
     <% @posts.each do |post| %>
-      <%= render post %>
-      <p>
-        <%= link_to "Show this post", post, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
+      <div class="col">
+        <%= render post %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -12,5 +12,6 @@ class ApplicationController < ActionController::Base
 
   def profile
     @user = current_user
+    @posts = @user.posts
   end
 end

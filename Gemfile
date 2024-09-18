@@ -56,9 +56,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "tailwindcss-rails", "~> 2.7"
+gem 'bootstrap', '~> 5.3.3'
 gem "standard", ">= 1.35.1", require: false
-
 gem "foreman", "~> 0.88.1", group: :development, require: false
-
 gem "devise", "~> 4.9"
+
+gem "dartsass-rails", "~> 0.5.1"

@@ -1,8 +1,7 @@
 <%= form_with(model: post, class: "contents") do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,17 +10,18 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :body %>
-    <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="mb-3">
+    <%= form.label :body, class: 'form-label' %>
+    <%= form.text_area :body, rows: 4, class: "form-control" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="d-flex gap-3 mb-3">
+    <%= form.submit class: "btn btn-success" %>
+    <%= link_to "Back to all posts", posts_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
