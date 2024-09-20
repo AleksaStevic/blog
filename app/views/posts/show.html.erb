@@ -1,22 +1,51 @@
-<div class="container mt-5">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="alert alert-success" id="notice"><%= notice %></p>
-    <% end %>
+<section class="container mt-5">
+  <div class="mb-3">
+    <%= render "messages" %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1>
+        <%= @post.title %>
+        <small class="text-body-secondary">
+          by <%= @post.user.username %>
+        </small>
+      </h1>
 
-    <h1>
-      <%= @post.title %>
-      <small class="text-body-secondary">
-        by <%= @post.user.username %>
-      </small>
-    </h1>
+      <p><%= @post.body %></p>
 
-    <p><%= @post.body %></p>
-
-    <div class="d-flex gap-2">
-      <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
-      <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary" %>
-      <%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %>
+      <div class="d-flex gap-2">
+        <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
+        <% if @post.user == current_user %>
+          <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary" %>
+          <%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <h2>Comments</h2>
+      <hr>
+      <% if @post.comments.any? %>
+        <% @post.comments.each do |comment| %>
+          <%= render "comment-card", comment: comment %>
+        <% end %>
+      <% else %>
+        <p class="text-muted">No comments yet.</p>
+      <% end %>
+      <hr>
+      <% if user_signed_in? %>
+        <h2>Add a comment</h2>
+        <%= form_with(model: [@post, @post.comments.build]) do |form| %>
+          <div class="mb-3">
+            <%= form.label :body, "Comment", class: 'form-label' %>
+            <%= form.text_area :body, class: 'form-control' %>
+          </div>
+          <%= form.submit "Add comment", class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+        <p>
+          You need to <%= link_to "Sign in", new_user_session_path %> to add a comment.
+        </p>
+      <% end %>
     </div>
   </div>
-</div>
+</section>

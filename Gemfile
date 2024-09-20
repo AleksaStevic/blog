@@ -62,3 +62,5 @@ gem "foreman", "~> 0.88.1", group: :development, require: false
 gem "devise", "~> 4.9"
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem "hotwire-rails", "~> 0.1.3"
