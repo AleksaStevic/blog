@@ -8,7 +8,7 @@
 6. [ ] Fix bug with notices/alerts.
 7. [ ] Think of another possible improvements?
 8. [ ] Check that all tasks are finished.
-9. [ ] Add DB seeds
+9. [x] Add DB seeds
 10. [ ] Add pagination
 11. [ ] Use postgres instead of sqlite
 12. [ ] Handle the case where comment author is deleted
