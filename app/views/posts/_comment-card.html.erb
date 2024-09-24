@@ -10,7 +10,7 @@
       <p class="card-text"><%= comment.body %></p>
       <p class="card-text">
         <small class="text-muted">
-          by <%= comment.user.username %>
+          by <%= comment.user.present? ? comment.user.username : "(deleted)" %>
         </small>
       </p>
     </div>
@@ -24,7 +24,7 @@
         >
           Edit
         </button>
-        <%= button_to "Delete", [@post, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+        <%= button_to "Delete", [@post, comment], method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
       </div>
     <% end %>
   </article>
