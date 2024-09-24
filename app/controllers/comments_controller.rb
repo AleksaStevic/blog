@@ -8,10 +8,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(@post), notice: "Comment was successfully created."
+      flash[:notice] = "Comment was successfully created."
     else
-      redirect_to post_path(@post), alert: "There was an error creating a comment."
+      flash[:new_comment_errors] = @comment.errors.full_messages
     end
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
   def edit
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(@comment, partial: "posts/comment-edit-form", locals: {comment: @comment})
+        render turbo_stream: turbo_stream.replace(@comment, partial: "posts/comments/edit-form", locals: {comment: @comment})
       end
     end
   end
@@ -41,7 +42,7 @@ class CommentsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
             @comment,
-            partial: "posts/comment-card",
+            partial: "posts/comments/comment",
             locals: {
               comment: @comment,
               notice: "Comment successfully updated."
@@ -52,7 +53,7 @@ class CommentsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
             @comment,
-            partial: "posts/comment-edit-form",
+            partial: "posts/comments/edit-form",
             locals: {
               comment: @comment,
               alert: "There was an error updating comment."

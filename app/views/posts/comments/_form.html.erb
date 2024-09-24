@@ -1,0 +1,16 @@
+<%= form_with(model: [@post, @post.comments.build]) do |form| %>
+  <% if flash[:new_comment_errors] %>
+    <div id="error_explanation_2" class="alert alert-danger">
+      <ul class="mb-0">
+        <% flash[:new_comment_errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :body, "Comment", class: 'form-label' %>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div>
+  <%= form.submit "Add comment", class: 'btn btn-primary' %>
+<% end %>
