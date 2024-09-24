@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "errors/not_found"
+  get "errors/internal_server_error"
   resources :posts do
     resources :comments, only: %i[create destroy update edit]
   end
@@ -16,5 +18,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "posts#index"
 
-  get "profile" => "application#profile"
+  get "profile" => "pages#profile"
+
+  # Custom error pages
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 end

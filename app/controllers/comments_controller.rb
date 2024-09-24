@@ -16,16 +16,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    begin
-      @comment.destroy!
-    rescue ActiveRecord::RecordNotDestroyed => error
-      puts "errors that prevented destruction: #{error.record.errors}"
-    end
-
-    respond_to do |format|
-      format.html { redirect_to post_path(@post), notice: "Comment was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @comment.destroy!
+    redirect_to post_path(@post)
   end
 
   def edit
@@ -55,8 +47,7 @@ class CommentsController < ApplicationController
             @comment,
             partial: "posts/comments/edit-form",
             locals: {
-              comment: @comment,
-              alert: "There was an error updating comment."
+              comment: @comment
             }
           )
         end

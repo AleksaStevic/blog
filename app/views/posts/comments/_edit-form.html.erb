@@ -1,18 +1,14 @@
 <%= turbo_frame_tag dom_id(comment) do %>
   <%= form_with model: [@post, comment], class: 'card' do |form| %>
-    <% if comment.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
-        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-        <ul>
-          <% comment.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
     <div class="card-body">
-      <% if alert.present? %>
-        <p class="alert alert-danger p-2 m-0 mb-2"><%= alert %></p>
+      <% if comment.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul class="mb-0">
+            <% comment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
       <div class="mb-3">
         <%= form.text_area :body, rows: 3, class: "form-control" %>

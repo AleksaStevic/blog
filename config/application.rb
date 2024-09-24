@@ -23,5 +23,8 @@ module Blog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Server error pages from the rails app itself
+    config.exceptions_app = routes
   end
 end
