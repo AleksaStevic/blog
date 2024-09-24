@@ -2,7 +2,7 @@ require "faker"
 
 users = User.all
 
-NUM_POSTS = 10
+NUM_POSTS = 50
 
 def generate_markdown
   intro_section_num_p = rand(2..5)
