@@ -1,9 +1,19 @@
 <h2>Comments</h2>
 <hr>
-<% if @post.comments.any? %>
-  <% @post.comments.each do |comment| %>
+<% if @comments.any? %>
+  <% @comments.each do |comment| %>
     <%= render "posts/comments/comment", comment: comment %>
   <% end %>
+  <nav class="d-flex justify-content-center">
+    <ul class="pagination pagination-sm">
+      <li class="page-item">
+        <%= link_to_prev_page @comments, 'Prev', params: { class: 'page-link' } %>
+      </li>
+      <li class="page-item">
+        <%= link_to_next_page @comments, 'Next', params: { class: 'page-link' } %>
+      </li>
+    </ul>
+  </nav>
 <% else %>
   <p class="text-muted">No comments yet.</p>
 <% end %>

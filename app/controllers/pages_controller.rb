@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 end
