@@ -12,5 +12,5 @@
 10. [ ] Add pagination
 11. [ ] Use postgres instead of sqlite
 12. [x] Handle the case where comment author is deleted
-13. [ ] Add 404 page
-14. [ ] Handle cases where loop is empty
+13. [x] Add 404 page
+14. [x] Handle cases where loop is empty

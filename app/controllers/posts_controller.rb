@@ -43,7 +43,8 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy!
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    flash[:notice] = "Post was successfully destroyed."
+    redirect_to request.referer, notice: "Post was successfully destroyed."
   end
 
   private

@@ -5,10 +5,14 @@
   </div>
   <hr>
   <div class="row row-cols-3 row-gap-3">
-    <% @posts.each do |post| %>
-      <div class="col">
-        <%= render post %>
-      </div>
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <div class="col">
+          <%= render post %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>You don't have any posts yet.</p>
     <% end %>
   </div>
 </section>
