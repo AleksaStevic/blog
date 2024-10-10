@@ -19,6 +19,7 @@ Blog app
     -e POSTGRES_HOST_AUTH_METHOD=trust \
     -d postgres:16-alpine
    ```
+   Database needs to have default user `postgres` with **empty** password. Server port is `5432`. Please check the `config/database.yml` file for more information.
    
 3. Setup database:
     ```shell
