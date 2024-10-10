@@ -1,43 +1,44 @@
 require "application_system_test_case"
 
 class PostsTest < ApplicationSystemTestCase
-  setup do
-    @post = posts(:one)
+  include Devise::Test::IntegrationHelpers
+  def setup
+    @user = users(:aleksa)
+    sign_in @user
   end
 
-  test "visiting the index" do
-    visit posts_url
-    assert_selector "h1", text: "Posts"
-  end
-
-  test "should create post" do
-    visit posts_url
-    click_on "New post"
-
-    fill_in "Body", with: @post.body
-    fill_in "Title", with: @post.title
+  test "should report validation error if form is empty" do
+    visit new_post_url
     click_on "Create Post"
 
-    assert_text "Post was successfully created"
-    click_on "Back"
+    assert_text "Title can't be blank"
+    assert_text "Body can't be blank"
   end
 
-  test "should update Post" do
-    visit post_url(@post)
-    click_on "Edit this post", match: :first
+  test "should report validation error if title is too short" do
+    visit new_post_url
+    fill_in "Title", with: "a"
+    fill_in "Body", with: "a" * 10
+    click_on "Create Post"
 
-    fill_in "Body", with: @post.body
-    fill_in "Title", with: @post.title
-    click_on "Update Post"
-
-    assert_text "Post was successfully updated"
-    click_on "Back"
+    assert_text "Title is too short (minimum is 5 characters)"
   end
 
-  test "should destroy Post" do
-    visit post_url(@post)
-    click_on "Destroy this post", match: :first
+  test "should report validation error if body is too short" do
+    visit new_post_url
+    fill_in "Title", with: "a" * 5
+    fill_in "Body", with: "a" * 5
+    click_on "Create Post"
 
-    assert_text "Post was successfully destroyed"
+    assert_text "Body is too short (minimum is 10 characters)"
+  end
+
+  test "should report success if post is created" do
+    visit new_post_url
+    fill_in "Title", with: "a" * 5
+    fill_in "Body", with: "a" * 10
+    click_on "Create Post"
+
+    assert_text "Post was successfully created."
   end
 end
