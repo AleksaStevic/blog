@@ -212,6 +212,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    pg (1.4.5)
     popper_js (2.11.8)
     psych (5.1.2)
       stringio
@@ -333,16 +334,6 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.0.4-aarch64-linux-gnu)
-    sqlite3 (2.0.4-aarch64-linux-musl)
-    sqlite3 (2.0.4-arm-linux-gnu)
-    sqlite3 (2.0.4-arm-linux-musl)
-    sqlite3 (2.0.4-arm64-darwin)
-    sqlite3 (2.0.4-x86-linux-gnu)
-    sqlite3 (2.0.4-x86-linux-musl)
-    sqlite3 (2.0.4-x86_64-darwin)
-    sqlite3 (2.0.4-x86_64-linux-gnu)
-    sqlite3 (2.0.4-x86_64-linux-musl)
     standard (1.40.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -414,13 +405,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
+  pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.1)
   redcarpet
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
-  sqlite3 (>= 1.4)
   standard (>= 1.35.1)
   stimulus-rails
   turbo-rails
