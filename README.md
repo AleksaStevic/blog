@@ -1,6 +1,8 @@
 Blog app
 ========
 
+Production URL: https://blog-rb0e.onrender.com/
+
 # Requirements
 
 - Ruby 3.2.2
