@@ -7,10 +7,10 @@
   <nav class="d-flex justify-content-center">
     <ul class="pagination pagination-sm">
       <li class="page-item">
-        <%= link_to_prev_page @comments, 'Prev', params: { class: 'page-link' } %>
+        <%= link_to_prev_page @comments, '<', class: 'page-link' %>
       </li>
       <li class="page-item">
-        <%= link_to_next_page @comments, 'Next', params: { class: 'page-link' } %>
+        <%= link_to_next_page @comments, '>', class: 'page-link' %>
       </li>
     </ul>
   </nav>

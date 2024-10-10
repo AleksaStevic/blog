@@ -9,7 +9,7 @@
 7. [ ] Think of another possible improvements?
 8. [ ] Check that all tasks are finished.
 9. [x] Add DB seeds
-10. [ ] Add pagination
+10. [ ] Add pagination (improve comments pagination)
 11. [ ] Use postgres instead of sqlite
 12. [x] Handle the case where comment author is deleted
 13. [x] Add 404 page
