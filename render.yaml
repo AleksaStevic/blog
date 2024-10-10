@@ -16,7 +16,7 @@ services:
         fromDatabase:
           name: blog-db
           property: connectionString
-      - kay: RAILS_MASTER_KEY
+      - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
         value: 2
